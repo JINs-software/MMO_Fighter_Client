@@ -283,6 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1190605129}
   - component: {fileID: 1190605130}
+  - component: {fileID: 1190605131}
   m_Layer: 0
   m_Name: BattleField
   m_TagString: Untagged
@@ -315,6 +316,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 168ed40f8092f6c45a13819e728f41d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1190605131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190605128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172c345c128efab4bb84e895c81f5052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1223586413 stripped
