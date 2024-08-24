@@ -10,6 +10,20 @@
 //    public const int PACKET_MOVE_DIR_LD = 7;
 //}
 
+using System;
+
+public static class GameServer
+{
+    public const string IP = "127.0.0.1";
+    public const UInt16 Port = 12121;
+}
+
+public static class BattleMap
+{
+    public const UInt16 RANGE_X = 6400;
+    public const UInt16 RANGE_Y = 6400;
+}
+
 public enum Direction
 {
     DIR_LL,

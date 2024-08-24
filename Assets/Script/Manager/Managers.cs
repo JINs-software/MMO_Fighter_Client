@@ -1,5 +1,6 @@
 using UnityEngine;
 
+/*
 public class Manager : MonoBehaviour
 {
     static Manager s_Instance;   // 유일성 보장
@@ -31,3 +32,4 @@ public class Manager : MonoBehaviour
         }
     }
 }
+*/
