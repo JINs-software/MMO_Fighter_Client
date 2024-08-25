@@ -1,21 +1,21 @@
-
-using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class FightGameMove : Stub_FightGameMove
 {
-    private void Start() 
+    private void Start()
     {
         base.Init();
     }
 
-
-    protected override void MOVE_START(UInt32 ID, Byte Dir, UInt16 X, UInt16 Y) 
+    protected override void MOVE_START(uint ID, byte Dir, ushort X, ushort Y)
     {
         BattleField battleField = gameObject.GetComponent<BattleField>();
         if (battleField.Fighters.ContainsKey(ID))
         {
             Fighter fighter = battleField.Fighters[ID];
-            if (fighter != battleField.Player)
+            if(fighter != battleField.Player)
             {
                 fighter.X = X;
                 fighter.Y = Y;
@@ -24,7 +24,7 @@ public class FightGameMove : Stub_FightGameMove
         }
     }
 
-    protected override void MOVE_STOP(UInt32 ID, Byte Dir, UInt16 X, UInt16 Y) 
+    protected override void MOVE_STOP(uint ID, byte Dir, ushort X, ushort Y)
     {
         BattleField battleField = gameObject.GetComponent<BattleField>();
         if (battleField.Fighters.ContainsKey(ID))
@@ -39,5 +39,4 @@ public class FightGameMove : Stub_FightGameMove
             }
         }
     }
-
 }

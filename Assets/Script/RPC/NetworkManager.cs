@@ -1,3 +1,4 @@
+
 using System;
 using System.Diagnostics;
 using System.Net;
@@ -92,7 +93,7 @@ public class NetworkManager
     private TcpClient m_TcpClient = null;
     private NetworkStream m_Stream = null;
 
-    private NetBuffer m_RecvBuffer = new NetBuffer(1024);
+    private NetBuffer m_RecvBuffer = new NetBuffer(0);
 
     private System.Random m_RandKeyMaker = new System.Random();
 
@@ -253,7 +254,7 @@ public class NetworkManager
         }
         finally
         {
-            // ÇÒ´ç¹ŞÀº ³×ÀÌÆ¼ºê ¸Ş¸ğ¸® ÇØÁ¦
+            // í• ë‹¹ë°›ì€ ë„¤ì´í‹°ë¸Œ ë©”ëª¨ë¦¬ í•´ì œ
             Marshal.FreeHGlobal(ptr);
         }
 
@@ -276,7 +277,7 @@ public class NetworkManager
         }
         finally
         {
-            // ÇÒ´ç¹ŞÀº ³×ÀÌÆ¼ºê ¸Ş¸ğ¸® ÇØÁ¦
+            // í• ë‹¹ë°›ì€ ë„¤ì´í‹°ë¸Œ ë©”ëª¨ë¦¬ í•´ì œ
             Marshal.FreeHGlobal(ptr);
         }
     }

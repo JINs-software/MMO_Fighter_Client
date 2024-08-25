@@ -1,15 +1,13 @@
-
 using System;
 
 public class FightGameAttack : Stub_FightGameAttack
 {
-    private void Start() 
+    private void Start()
     {
         base.Init();
     }
 
-
-    protected override void ATTACK1(UInt32 ID, Byte Dir, UInt16 X, UInt16 Y) 
+    protected override void ATTACK1(uint ID, byte Dir, ushort X, ushort Y)
     {
         BattleField battleField = gameObject.GetComponent<BattleField>();
         if (battleField.Fighters.ContainsKey(ID))
@@ -25,7 +23,7 @@ public class FightGameAttack : Stub_FightGameAttack
         }
     }
 
-    protected override void ATTACK2(UInt32 ID, Byte Dir, UInt16 X, UInt16 Y) 
+    protected override void ATTACK2(uint ID, byte Dir, ushort X, ushort Y)
     {
         BattleField battleField = gameObject.GetComponent<BattleField>();
         if (battleField.Fighters.ContainsKey(ID))
@@ -41,7 +39,7 @@ public class FightGameAttack : Stub_FightGameAttack
         }
     }
 
-    protected override void ATTACK3(UInt32 ID, Byte Dir, UInt16 X, UInt16 Y) 
+    protected override void ATTACK3(uint ID, byte Dir, ushort X, ushort Y)
     {
         BattleField battleField = gameObject.GetComponent<BattleField>();
         if (battleField.Fighters.ContainsKey(ID))
@@ -56,5 +54,4 @@ public class FightGameAttack : Stub_FightGameAttack
             }
         }
     }
-
 }

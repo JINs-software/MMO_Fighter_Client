@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -17,7 +16,8 @@ public class RPC : MonoBehaviour
     static RPC s_Instance;
     public static RPC Instance { get { Init(); return s_Instance; } }
     public static Proxy proxy = new Proxy();
-    public static byte ValidCode = 0;
+    public static byte ValidCode = 136;
+
     private Dictionary<int, Action<byte[]>> StubMethods = new Dictionary<int, Action<byte[]>>();
 
     NetworkManager m_NetworkManager = new NetworkManager();

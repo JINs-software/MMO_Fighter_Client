@@ -1,15 +1,15 @@
-
-using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class FightGameDamage : Stub_FightGameDamage
 {
-    private void Start() 
+    private void Start()
     {
         base.Init();
     }
 
-
-    protected override void DAMAGE(UInt32 attker, UInt32 target, Byte targetHP) 
+    protected override void DAMAGE(uint attacker, uint target, byte targetHP)
     {
         BattleField battleField = gameObject.GetComponent<BattleField>();
         if (battleField.Fighters.ContainsKey(target))
@@ -18,5 +18,4 @@ public class FightGameDamage : Stub_FightGameDamage
             fighter.TAKE_DAMAGE(targetHP);
         }
     }
-
 }
