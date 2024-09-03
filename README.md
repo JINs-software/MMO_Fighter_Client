@@ -63,3 +63,16 @@
     함수로 처리하여 클라이언트에 반영한다.
 
   ![6](https://github.com/user-attachments/assets/36e52413-9e7c-4b94-9367-cd2a2dd7c542)
+
+
+### \[시연 영상\]
+
+1. 상/하/좌/우 방향키 입력 시 FighterController에서는 프록시 함수를 호출, 서버는 이동 패킷을 받고 주변의 다른 Fighter들의 클라이언트에 MOVE_START 패킷 전송. 속도를 기반으로 프레임마다 위치를 동기화함.
+   ![move](https://github.com/user-attachments/assets/a12bf3ac-bde8-4457-bab3-ec247c90d305)
+
+2. Z/X/C 키 입력을 통해 공격 수행, 마찬가지로 FighterController에서 프록시 함수 호출을 통해 공격 패킷 전송, 서버는 공격 패킷을 받은 뒤 주변의 다른 Fighter들의 클라이언트에 ATTACK1/2/3 패킷 전송. 또한 공격 범위의 Fighter들을 섹터 기반의 자료구조를 통해 획득하여 데미지 반영 및 데미지 패킷 브로드캐스팅.
+   ![attack](https://github.com/user-attachments/assets/9b69dfb1-62a9-49e2-97da-02b16e6a6792)
+
+3. 자체 유니티 클라이언트 프로그램 및 더미 클라이언트 프로그램(프로카데미 제공) 실행. 서버는 하나의 클라이언트에 필드 상 모든 Fighter 캐릭터들의 정보와 공격/이동 등의 정보를 전달할 필요가 없기에 단일 클라이언트의 관심 영역의 섹터들의 Fighter 캐릭터들의 정보만을 전송함. 따라서 클라이언트의 이동 시 새로운 캐릭터들의 생성과 삭제가 반복됨.
+    ![dummy](https://github.com/user-attachments/assets/b018e481-a370-48ba-8767-94ec1e8b5f14)
+
