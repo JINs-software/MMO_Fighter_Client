@@ -17,17 +17,17 @@ public class Proxy
     };
 
 
-    public void MOVE_START(Byte Dir, UInt16 X, UInt16 Y)
+    public void MOVE_START(byte Dir, UInt16 X, UInt16 Y,  NetworkManager sesion = null)
     {
-        stMSG_HDR hdr = new stMSG_HDR();
+        JNET_PROTOCOL.SIMPLE_MSG_HDR hdr = new JNET_PROTOCOL.SIMPLE_MSG_HDR();
         hdr.Code = RPC.ValidCode;
-        hdr.MsgLen = (byte)(Marshal.SizeOf(Dir) + Marshal.SizeOf(X) + Marshal.SizeOf(Y));
+        hdr.MsgLen = (Byte)(sizeof(byte) + sizeof(UInt16) + sizeof(UInt16));
         hdr.MsgType = MessageIDs["MOVE_START"];
 
         byte[] bytes = new byte[Marshal.SizeOf(hdr) + hdr.MsgLen];
 
         byte[] bytesHdr = new byte[Marshal.SizeOf(hdr)];
-        RPC.Network.MessageToBytes<stMSG_HDR>(hdr, bytesHdr);
+        RPC.Network.MessageToBytes<JNET_PROTOCOL.SIMPLE_MSG_HDR>(hdr, bytesHdr);
 
         int offset = 0;
         Buffer.BlockCopy(bytesHdr, 0, bytes, offset, Marshal.SizeOf(hdr)); offset += Marshal.SizeOf(hdr);
@@ -37,17 +37,17 @@ public class Proxy
         RPC.Network.SendBytes(bytes);          
     }
 
-    public void MOVE_STOP(Byte Dir, UInt16 X, UInt16 Y)
+    public void MOVE_STOP(byte Dir, UInt16 X, UInt16 Y,  NetworkManager sesion = null)
     {
-        stMSG_HDR hdr = new stMSG_HDR();
+        JNET_PROTOCOL.SIMPLE_MSG_HDR hdr = new JNET_PROTOCOL.SIMPLE_MSG_HDR();
         hdr.Code = RPC.ValidCode;
-        hdr.MsgLen = (byte)(Marshal.SizeOf(Dir) + Marshal.SizeOf(X) + Marshal.SizeOf(Y));
+        hdr.MsgLen = (Byte)(sizeof(byte) + sizeof(UInt16) + sizeof(UInt16));
         hdr.MsgType = MessageIDs["MOVE_STOP"];
 
         byte[] bytes = new byte[Marshal.SizeOf(hdr) + hdr.MsgLen];
 
         byte[] bytesHdr = new byte[Marshal.SizeOf(hdr)];
-        RPC.Network.MessageToBytes<stMSG_HDR>(hdr, bytesHdr);
+        RPC.Network.MessageToBytes<JNET_PROTOCOL.SIMPLE_MSG_HDR>(hdr, bytesHdr);
 
         int offset = 0;
         Buffer.BlockCopy(bytesHdr, 0, bytes, offset, Marshal.SizeOf(hdr)); offset += Marshal.SizeOf(hdr);
@@ -57,17 +57,17 @@ public class Proxy
         RPC.Network.SendBytes(bytes);          
     }
 
-    public void ATTACK1(Byte Dir, UInt16 X, UInt16 Y)
+    public void ATTACK1(byte Dir, UInt16 X, UInt16 Y,  NetworkManager sesion = null)
     {
-        stMSG_HDR hdr = new stMSG_HDR();
+        JNET_PROTOCOL.SIMPLE_MSG_HDR hdr = new JNET_PROTOCOL.SIMPLE_MSG_HDR();
         hdr.Code = RPC.ValidCode;
-        hdr.MsgLen = (byte)(Marshal.SizeOf(Dir) + Marshal.SizeOf(X) + Marshal.SizeOf(Y));
+        hdr.MsgLen = (Byte)(sizeof(byte) + sizeof(UInt16) + sizeof(UInt16));
         hdr.MsgType = MessageIDs["ATTACK1"];
 
         byte[] bytes = new byte[Marshal.SizeOf(hdr) + hdr.MsgLen];
 
         byte[] bytesHdr = new byte[Marshal.SizeOf(hdr)];
-        RPC.Network.MessageToBytes<stMSG_HDR>(hdr, bytesHdr);
+        RPC.Network.MessageToBytes<JNET_PROTOCOL.SIMPLE_MSG_HDR>(hdr, bytesHdr);
 
         int offset = 0;
         Buffer.BlockCopy(bytesHdr, 0, bytes, offset, Marshal.SizeOf(hdr)); offset += Marshal.SizeOf(hdr);
@@ -77,37 +77,38 @@ public class Proxy
         RPC.Network.SendBytes(bytes);          
     }
 
-    public void ATTACK2(Byte Dir, UInt16 X, UInt16 Y)
+    public void ATTACK2(byte Dir, UInt16 X, UInt16 Y,  NetworkManager sesion = null)
     {
-        stMSG_HDR hdr = new stMSG_HDR();
+        JNET_PROTOCOL.SIMPLE_MSG_HDR hdr = new JNET_PROTOCOL.SIMPLE_MSG_HDR();
         hdr.Code = RPC.ValidCode;
-        hdr.MsgLen = (byte)(Marshal.SizeOf(Dir) + Marshal.SizeOf(X) + Marshal.SizeOf(Y));
+        hdr.MsgLen = (Byte)(sizeof(byte) + sizeof(UInt16) + sizeof(UInt16));
         hdr.MsgType = MessageIDs["ATTACK2"];
 
         byte[] bytes = new byte[Marshal.SizeOf(hdr) + hdr.MsgLen];
 
         byte[] bytesHdr = new byte[Marshal.SizeOf(hdr)];
-        RPC.Network.MessageToBytes<stMSG_HDR>(hdr, bytesHdr);
+        RPC.Network.MessageToBytes<JNET_PROTOCOL.SIMPLE_MSG_HDR>(hdr, bytesHdr);
 
         int offset = 0;
         Buffer.BlockCopy(bytesHdr, 0, bytes, offset, Marshal.SizeOf(hdr)); offset += Marshal.SizeOf(hdr);
         bytes[offset++] = Dir;
         Buffer.BlockCopy(BitConverter.GetBytes(X), 0, bytes, offset, sizeof(UInt16)); offset += sizeof(UInt16);
         Buffer.BlockCopy(BitConverter.GetBytes(Y), 0, bytes, offset, sizeof(UInt16)); offset += sizeof(UInt16);
-        RPC.Network.SendBytes(bytes);          
+        RPC.Network.SendBytes(bytes);    
+
     }
 
-    public void ATTACK3(Byte Dir, UInt16 X, UInt16 Y)
+    public void ATTACK3(byte Dir, UInt16 X, UInt16 Y,  NetworkManager sesion = null)
     {
-        stMSG_HDR hdr = new stMSG_HDR();
+        JNET_PROTOCOL.SIMPLE_MSG_HDR hdr = new JNET_PROTOCOL.SIMPLE_MSG_HDR();
         hdr.Code = RPC.ValidCode;
-        hdr.MsgLen = (byte)(Marshal.SizeOf(Dir) + Marshal.SizeOf(X) + Marshal.SizeOf(Y));
+        hdr.MsgLen = (Byte)(sizeof(byte) + sizeof(UInt16) + sizeof(UInt16));
         hdr.MsgType = MessageIDs["ATTACK3"];
 
         byte[] bytes = new byte[Marshal.SizeOf(hdr) + hdr.MsgLen];
 
         byte[] bytesHdr = new byte[Marshal.SizeOf(hdr)];
-        RPC.Network.MessageToBytes<stMSG_HDR>(hdr, bytesHdr);
+        RPC.Network.MessageToBytes<JNET_PROTOCOL.SIMPLE_MSG_HDR>(hdr, bytesHdr);
 
         int offset = 0;
         Buffer.BlockCopy(bytesHdr, 0, bytes, offset, Marshal.SizeOf(hdr)); offset += Marshal.SizeOf(hdr);
@@ -117,17 +118,17 @@ public class Proxy
         RPC.Network.SendBytes(bytes);          
     }
 
-    public void ECHO(UInt32 Time)
+    public void ECHO(UInt32 Time,  NetworkManager sesion = null)
     {
-        stMSG_HDR hdr = new stMSG_HDR();
+        JNET_PROTOCOL.SIMPLE_MSG_HDR hdr = new JNET_PROTOCOL.SIMPLE_MSG_HDR();
         hdr.Code = RPC.ValidCode;
-        hdr.MsgLen = (byte)(Marshal.SizeOf(Time));
+        hdr.MsgLen = (Byte)(sizeof(UInt32));
         hdr.MsgType = MessageIDs["ECHO"];
 
         byte[] bytes = new byte[Marshal.SizeOf(hdr) + hdr.MsgLen];
 
         byte[] bytesHdr = new byte[Marshal.SizeOf(hdr)];
-        RPC.Network.MessageToBytes<stMSG_HDR>(hdr, bytesHdr);
+        RPC.Network.MessageToBytes<JNET_PROTOCOL.SIMPLE_MSG_HDR>(hdr, bytesHdr);
 
         int offset = 0;
         Buffer.BlockCopy(bytesHdr, 0, bytes, offset, Marshal.SizeOf(hdr)); offset += Marshal.SizeOf(hdr);

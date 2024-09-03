@@ -8,6 +8,11 @@ public class FightGameComm : Stub_FightGameComm
         base.Init();
     }
 
+    private void OnDestroy()
+    {
+        base.Clear();  
+    }
+
 
     protected override void SYNC(UInt32 ID, UInt16 X, UInt16 Y) 
     {

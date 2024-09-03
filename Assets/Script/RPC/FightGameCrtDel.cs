@@ -9,8 +9,13 @@ public class FightGameCrtDel : Stub_FightGameCrtDel
         base.Init();
     }
 
+    private void OnDestroy()
+    {
+        base.Clear();  
+    }
 
-    protected override void CRT_CHARACTER(UInt32 ID, Byte Dir, UInt16 X, UInt16 Y, Byte HP) 
+
+    protected override void CRT_CHARACTER(UInt32 ID, byte Dir, UInt16 X, UInt16 Y, byte HP) 
     {
         BattleField battleField = gameObject.GetComponent<BattleField>();
         Fighter fighter = battleField.CreateFighter(ID, Dir, X, Y, HP);
@@ -27,14 +32,14 @@ public class FightGameCrtDel : Stub_FightGameCrtDel
         battleField.Fighters.Add(ID, fighter);
     }
 
-    protected override void CRT_OTHER_CHARACTER(UInt32 ID, Byte Dir, UInt16 X, UInt16 Y, Byte HP) 
+    protected override void CRT_OTHER_CHARACTER(UInt32 ID, byte Dir, UInt16 X, UInt16 Y, byte HP) 
     {
         BattleField battleField = gameObject.GetComponent<BattleField>();
         Fighter fighter = battleField.CreateFighter(ID, Dir, X, Y, HP);
         battleField.Fighters.Add(ID, fighter);
     }
 
-    protected override void DEL_CHARACTER(UInt16 ID) 
+    protected override void DEL_CHARACTER(UInt32 ID) 
     {
         BattleField battleField = gameObject.GetComponent<BattleField>();
         if (battleField.Fighters.ContainsKey(ID))
@@ -56,5 +61,4 @@ public class FightGameCrtDel : Stub_FightGameCrtDel
             }
         }
     }
-
 }

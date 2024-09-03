@@ -8,8 +8,13 @@ public class FightGameAttack : Stub_FightGameAttack
         base.Init();
     }
 
+    private void OnDestroy()
+    {
+        base.Clear();  
+    }
 
-    protected override void ATTACK1(UInt32 ID, Byte Dir, UInt16 X, UInt16 Y) 
+
+    protected override void ATTACK1(UInt32 ID, byte Dir, UInt16 X, UInt16 Y) 
     {
         BattleField battleField = gameObject.GetComponent<BattleField>();
         if (battleField.Fighters.ContainsKey(ID))
@@ -25,7 +30,7 @@ public class FightGameAttack : Stub_FightGameAttack
         }
     }
 
-    protected override void ATTACK2(UInt32 ID, Byte Dir, UInt16 X, UInt16 Y) 
+    protected override void ATTACK2(UInt32 ID, byte Dir, UInt16 X, UInt16 Y) 
     {
         BattleField battleField = gameObject.GetComponent<BattleField>();
         if (battleField.Fighters.ContainsKey(ID))
@@ -41,7 +46,7 @@ public class FightGameAttack : Stub_FightGameAttack
         }
     }
 
-    protected override void ATTACK3(UInt32 ID, Byte Dir, UInt16 X, UInt16 Y) 
+    protected override void ATTACK3(UInt32 ID, byte Dir, UInt16 X, UInt16 Y) 
     {
         BattleField battleField = gameObject.GetComponent<BattleField>();
         if (battleField.Fighters.ContainsKey(ID))
